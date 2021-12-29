@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* ------------------------------ */
+        /* BASIC SETUP */
+        /* ------------------------------ */
+        html {
+            font-size: 20px;
+            line-height: 1.15;
+            height: 100%;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+        }
+
+        body {
+            margin: 0;
+            height: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: 300;
+            text-align: left;
+        }
+
+        /* HEADER */
+
+
+        .header {
+            height: 60hv;
+            display: flex;
+            background-color: rgb(179, 179, 236);
+        }
+
+        .header h1 {
+            margin: auto;
+            color: cornsilk;
+            padding: 60px 0;
+        }
+
+        /* NAVIGATION BAR */
+
+
+        .nav-bar {
+            width: 100vw;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            height: 8rem;
+            background-color: white;
+        }
+
+        .nav-bar img {
+
+            max-height: 90px;
+            border-radius: 50%;
+            margin: 10px 0 0 70px;
+
+
+        }
+
+        .nav-bar ul {
+            margin: 0 60px 0 0;
+
+        }
+
+        .nav-bar ul li {
+            display: inline-block;
+            margin: 0 10px 0 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* MAIN */
+
+        .row {
+            flex-direction: row;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .side {
+            flex: 3;
+            background-color: lavender;
+            padding: 1rem;
+        }
+
+        .main {
+            flex: 7;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        .img-placeholder {
+            background-color: lightcoral;
+            opacity: 0.5;
+            width: 100%;
+        }
+        
+
+        /* MOBILE LAYOUT */
+
+        @media screen and (max-width: 768px) {
+        .row {   
+        flex-direction: column;
+        }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Hello World</h1>
+    </div>
+    <div class="nav-bar">
+
+
+        <img src="https://picsum.photos/200" alt="logo">
+
+        <ul>
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+            <li><a href="#">Four</a></li>
+        </ul>
+
+
+    </div>
+
+
+
+
+    <div class="row">
+
+        <div class="side">
+            <h2>Some text</h2>
+            <h5>Smore text</h5>
+            <div class="img-placeholder" style="height: 200px;"><h4 style="padding: 20px; color: white;">Image Placeholder</h4></div>
+            <p>A paragraph</p>
+            <h3>Smore text</h3>
+            <p>Another one...</p>
+            <ul>
+                <li><a href="#">link1</a></li>
+                <li><a href="#">link2</a></li>
+                <li><a href="#">link3</a></li>
+                <li><a href="#">link4</a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <h2>HEADER</h2>
+            <h5>subheader</h5>
+            <div class="img-placeholder" style="height: 200px;"><h4 style="padding: 20px; color: white">Image Placeholder</h4></div>
+            <a href="#">link</a>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <h2>HEADER</h2>
+            <h5>subheader</h5>
+            <div class="img-placeholder" style="height: 200px;"><h4 style="padding: 20px; color: white;">Image Placeholder</h4></div>
+            <a href="#">link</a>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <h2>HEADER</h2>
+            <h5>subheader</h5>
+            <div class="img-placeholder" style="height: 200px;"><h4 style="padding: 20px; color: white;">Image Placeholder</h4></div>
+            <a href="#">link</a>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>            
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
