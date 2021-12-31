@@ -23,7 +23,6 @@
         body {
             margin: 0;
             height: 100%;
-            padding: 10px;
             font-size: 1rem;
             font-weight: 300;
             text-align: left;
@@ -33,7 +32,7 @@
 
 
         .header {
-            height: 60hv;
+            height: 60vh;
             display: flex;
             background-color: rgb(179, 179, 236);
         }
@@ -48,26 +47,33 @@
 
 
         .nav-bar {
-            width: 100vw;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-between;
             align-items: center;
             height: 8rem;
             background-color: white;
+            z-index: 2;
         }
 
-        .nav-bar img {
+        .blank {
 
-            max-height: 90px;
+            height: 90px;
+            transition: 0.6s;
             border-radius: 50%;
-            margin: 10px 0 0 70px;
+            margin: 0 0 0 70px;
 
 
+        }
+
+        .nav-bar h2 {
+            
+        transition: 0.6s;
+        margin: 0 0 0 70px;
         }
 
         .nav-bar ul {
-            margin: 0 60px 0 0;
+            margin-right: 60px;
 
         }
 
@@ -79,6 +85,7 @@
         a {
             text-decoration: none;
         }
+
 
         /* MAIN */
 
@@ -110,22 +117,58 @@
         /* MOBILE LAYOUT */
 
         @media screen and (max-width: 768px) {
+
+        /* RAW CONTENT */
         .row {   
         flex-direction: column;
         }
         }
+
+        /* STICKY NAVBAR */
+
+        .navbar-fixed {
+            position: fixed;
+            transition: 0.6s;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .navbar-fixed + .row {
+            margin-top: 160px;
+        }
+
+        /* SHRINKING NAVBAR */
+
+        .navbar-shrink {
+            position: fixed;
+
+            height: 60px;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+       /* .navbar-shrink + .row {
+            margin-top: 79px;
+        }    */
+        
+        .logo {
+            font-size: 1rem;
+        }
+
 
     </style>
 </head>
 
 <body>
     <div class="header">
-        <h1>Hello World</h1>
-    </div>
-    <div class="nav-bar">
+        <h1 class="hello">Hello World</h1>
+    </div> 
+    <div class="nav-bar" id="navbar">
 
 
-        <img src="https://picsum.photos/200" alt="logo">
+        <h2 id="logo">Logo</h2>
 
         <ul>
             <li><a href="#">One</a></li>
@@ -176,6 +219,42 @@
         </div>
 
     </div>
+
+
+
+<script>
+
+    window.onscroll = function() {stickyNav();
+                                shrinkOnScroll();
+    
+    };
+
+    var navbar = document.getElementById("navbar");
+    var logo = document.getElementById("logo");
+    var sticky = navbar.offsetTop;
+
+    function stickyNav() {
+        if (window.pageYOffset >= sticky) {
+        navbar.classList.add("navbar-fixed")
+        } else {
+        navbar.classList.remove("navbar-fixed");
+        }
+        }
+
+    function shrinkOnScroll() {
+        if (window.pageYOffset >= sticky + 160) {
+        navbar.classList.add("navbar-shrink");
+        logo.classList.add("logo");
+        } else {
+        navbar.classList.remove("navbar-shrink");
+        logo.classList.remove("logo");
+        }
+        }
+
+
+
+
+</script>
 
 
 </body>
