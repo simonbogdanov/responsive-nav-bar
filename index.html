@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
 
         /* ------------------------------ */
@@ -86,6 +89,11 @@
             text-decoration: none;
         }
 
+        .mobile-menu-link a {
+            display: none;
+        }
+        
+
 
         /* MAIN */
 
@@ -112,17 +120,6 @@
             opacity: 0.5;
             width: 100%;
         }
-        
-
-        /* MOBILE LAYOUT */
-
-        @media screen and (max-width: 768px) {
-
-        /* RAW CONTENT */
-        .row {   
-        flex-direction: column;
-        }
-        }
 
         /* STICKY NAVBAR */
 
@@ -148,13 +145,74 @@
             left: 0;
             right: 0;
         }
-
-       /* .navbar-shrink + .row {
-            margin-top: 79px;
-        }    */
         
         .logo {
             font-size: 1rem;
+        }
+
+        .curtain-menu {
+            height: 0%;
+            width: 100%;
+            position: fixed;
+            z-index: 3;
+            top: 0;
+            left: 0;
+            background-color: white;
+            overflow-y: hidden;
+            transition: 0.4s;
+        }
+
+
+        /* MOBILE LAYOUT */
+
+        @media screen and (max-width: 768px) {
+
+        /* raw content */
+
+        .row {   
+        flex-direction: column;
+        }
+
+        /* mobile menu */
+
+
+        .top-part {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .top-part a {
+            font-size: 2rem;
+            color: gray;
+            opacity: 0.7;
+        }
+
+        .main-part {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center; 
+        }
+
+        .mobile-nav-links {
+            list-style-type: none;
+            padding: 0.2rem 0;
+            padding-left: -20px;
+        }
+
+        .mobile-nav-links a {
+            color: gray;
+        }
+
+        .mobile-menu-link a {
+            display: block;
+        }
+
+        .desktop-nav-links a {
+            display: none;           
+        }
         }
 
 
@@ -171,11 +229,14 @@
         <h2 id="logo">Logo</h2>
 
         <ul>
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-            <li><a href="#">Four</a></li>
+            <li class="desktop-nav-links"><a href="#">One</a></li>
+            <li class="desktop-nav-links"><a href="#">Two</a></li>
+            <li class="desktop-nav-links"><a href="#">Three</a></li>
+            <li class="desktop-nav-links"><a href="#">Four</a></li>
+            <li class="mobile-menu-link"><a href="javascript:void(0)" onclick="curtain()">&#9776;</a></li>
         </ul>
+
+
 
 
     </div>
@@ -220,6 +281,28 @@
 
     </div>
 
+    <div class="curtain-menu" id="curtain-menu">
+
+        <div class="top-part">
+
+            <h2 id="logo">Logo</h2>
+            <a href="javascript:void(0)"  onclick="noCurtain()">&times;</a>
+
+        </div>
+
+        <div class="main-part">
+
+            <ul>
+                <li class="mobile-nav-links"><a href="#">One</a></li>
+                <li class="mobile-nav-links"><a href="#">Two</a></li>
+                <li class="mobile-nav-links"><a href="#">Three</a></li>
+                <li class="mobile-nav-links"><a href="#">Four</a></li>
+            </ul>           
+
+        </div>
+
+    </div>
+
 
 
 <script>
@@ -232,6 +315,7 @@
     var navbar = document.getElementById("navbar");
     var logo = document.getElementById("logo");
     var sticky = navbar.offsetTop;
+    var curtainMenu = document.getElementById("curtain-menu");
 
     function stickyNav() {
         if (window.pageYOffset >= sticky) {
@@ -250,6 +334,14 @@
         logo.classList.remove("logo");
         }
         }
+
+    function curtain() {
+        curtainMenu.style.height = "100%";
+    }
+
+    function noCurtain() {
+        curtainMenu.style.height = "0%";
+    }
 
 
 
