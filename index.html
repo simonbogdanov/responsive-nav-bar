@@ -7,221 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet">
 
-    <style>
-
-        /* ------------------------------ */
-        /* BASIC SETUP */
-        /* ------------------------------ */
-        html {
-            font-size: 20px;
-            line-height: 1.15;
-            height: 100%;
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-        }
-
-        body {
-            margin: 0;
-            height: 100%;
-            font-size: 1rem;
-            font-weight: 300;
-            text-align: left;
-        }
-
-        /* HEADER */
-
-
-        .header {
-            height: 60vh;
-            display: flex;
-            background-color: rgb(179, 179, 236);
-        }
-
-        .header h1 {
-            margin: auto;
-            color: cornsilk;
-            padding: 60px 0;
-        }
-
-        /* NAVIGATION BAR */
-
-
-        .nav-bar {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-between;
-            align-items: center;
-            height: 8rem;
-            background-color: white;
-            z-index: 2;
-        }
-
-        .blank {
-
-            height: 90px;
-            transition: 0.6s;
-            border-radius: 50%;
-            margin: 0 0 0 70px;
-
-
-        }
-
-        .nav-bar h2 {
-            
-        transition: 0.6s;
-        margin: 0 0 0 70px;
-        }
-
-        .nav-bar ul {
-            margin-right: 60px;
-
-        }
-
-        .nav-bar ul li {
-            display: inline-block;
-            margin: 0 10px 0 0;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .mobile-menu-link a {
-            display: none;
-        }
-        
-
-
-        /* MAIN */
-
-        .row {
-            flex-direction: row;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .side {
-            flex: 3;
-            background-color: lavender;
-            padding: 1rem;
-        }
-
-        .main {
-            flex: 7;
-            background-color: lightblue;
-            padding: 20px;
-        }
-
-        .img-placeholder {
-            background-color: lightcoral;
-            opacity: 0.5;
-            width: 100%;
-        }
-
-        /* STICKY NAVBAR */
-
-        .navbar-fixed {
-            position: fixed;
-            transition: 0.6s;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-
-        .navbar-fixed + .row {
-            margin-top: 160px;
-        }
-
-        /* SHRINKING NAVBAR */
-
-        .navbar-shrink {
-            position: fixed;
-
-            height: 60px;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-        
-        .logo {
-            font-size: 1rem;
-        }
-
-        .curtain-menu {
-            height: 0%;
-            width: 100%;
-            position: fixed;
-            z-index: 3;
-            top: 0;
-            left: 0;
-            background-color: white;
-            overflow-y: hidden;
-            transition: 0.4s;
-        }
-
-
-        /* MOBILE LAYOUT */
-
-        @media screen and (max-width: 768px) {
-
-        /* raw content */
-
-        .row {   
-        flex-direction: column;
-        }
-
-        /* mobile menu */
-
-
-        .top-part {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .top-part a {
-            font-size: 2rem;
-            color: gray;
-            opacity: 0.7;
-        }
-
-        .main-part {
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center; 
-        }
-
-        .mobile-nav-links {
-            list-style-type: none;
-            padding: 0.2rem 0;
-            padding-left: -20px;
-        }
-
-        .mobile-nav-links a {
-            color: gray;
-        }
-
-        .mobile-menu-link a {
-            display: block;
-        }
-
-        .desktop-nav-links a {
-            display: none;           
-        }
-        }
-
-
-    </style>
 </head>
 
 <body>
     <div class="header">
-        <h1 class="hello">Hello World</h1>
+        <h1 class="hello">Hello World!</h1>
+        <a style="color: green; z-index: 99;" href="#navbar">Click Me To See More!</a>
     </div> 
     <div class="nav-bar" id="navbar">
 
@@ -244,7 +37,7 @@
 
 
 
-    <div class="row">
+    <div class="row" id="row">
 
         <div class="side">
             <h2>Some text</h2>
@@ -303,50 +96,7 @@
 
     </div>
 
-
-
-<script>
-
-    window.onscroll = function() {stickyNav();
-                                shrinkOnScroll();
-    
-    };
-
-    var navbar = document.getElementById("navbar");
-    var logo = document.getElementById("logo");
-    var sticky = navbar.offsetTop;
-    var curtainMenu = document.getElementById("curtain-menu");
-
-    function stickyNav() {
-        if (window.pageYOffset >= sticky) {
-        navbar.classList.add("navbar-fixed")
-        } else {
-        navbar.classList.remove("navbar-fixed");
-        }
-        }
-
-    function shrinkOnScroll() {
-        if (window.pageYOffset >= sticky + 160) {
-        navbar.classList.add("navbar-shrink");
-        logo.classList.add("logo");
-        } else {
-        navbar.classList.remove("navbar-shrink");
-        logo.classList.remove("logo");
-        }
-        }
-
-    function curtain() {
-        curtainMenu.style.height = "100%";
-    }
-
-    function noCurtain() {
-        curtainMenu.style.height = "0%";
-    }
-
-
-
-
-</script>
+<script src="scripts.js"></script>
 
 
 </body>
